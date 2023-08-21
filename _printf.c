@@ -28,16 +28,18 @@ int _printf(const char *format, ...)
 			if (*format == '\0')
 				break;
 			if (*format == '%')/*this will return %%*/
+			{
 				write(1, format, 1);
 				count_num++;
-			if (*format == 'c')/*checking for characters*/
+			}
+			else if (*format == 'c')/*checking for characters*/
 			{
 				char car = va_arg(list, int);
 
 				write(1, &car, 1);
 				count_num++;
 			}
-			if (*format == 's')/*checking for string*/
+			else if (*format == 's')/*checking for string*/
 			{
 				char *str = va_arg(list, char *);
 
