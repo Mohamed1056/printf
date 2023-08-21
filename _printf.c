@@ -30,14 +30,14 @@ int _printf(const char *format, ...)
 			if (*format == '%')/*this will return %%*/
 				write(1, format, 1);
 				count_num++;
-			else if (*format == 'c')/*checking for characters*/
+			if (*format == 'c')/*checking for characters*/
 			{
 				char car = va_arg(list, int);
 
 				write(1, &car, 1);
 				count_num++;
 			}
-			else if (*format == 's')/*checking for string*/
+			if (*format == 's')/*checking for string*/
 			{
 				char *str = va_arg(list, char *);
 
